@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/optin-out-nfc/")
+@RequestMapping("/optin-out-nfc")
 public class OptinResource {
 
-    @PostMapping(value = "/")
+    @PostMapping
     public ResponseEntity<OptinResponseDTO> consultarDadosCadastrais(@RequestBody OptinRequestDTO requestDTO) {
 
 	OptinResponseDTO response = mockOptinResponseDTO();
