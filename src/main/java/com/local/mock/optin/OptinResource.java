@@ -1,5 +1,6 @@
 package com.local.mock.optin;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +14,21 @@ public class OptinResource {
     @PostMapping
     public ResponseEntity<OptinResponseDTO> consultarDadosCadastrais(@RequestBody OptinRequestDTO requestDTO) {
 
-	OptinResponseDTO response = mockOptinResponseDTO();
-
-	return ResponseEntity.ok(response);
+//	OptinResponseDTO response = mockResponseSucessoDTO();
+//	return ResponseEntity.ok(response);
+	
+	OptinResponseDTO response = mockResponseErroDTO();
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
-    private OptinResponseDTO mockOptinResponseDTO() {
+    private OptinResponseDTO mockResponseErroDTO() {
+	OptinResponseDTO mockErro = new OptinResponseDTO();
+	mockErro.setCode("501");
+	mockErro.setMessage("Erro na chamada ao Mainframe.");
+	return mockErro;
+    }
+
+    private OptinResponseDTO mockResponseSucessoDTO() {
 	OptinResponseDTO mock = new OptinResponseDTO();
 	mock.setNomeLayout("PQ061WS");
 	mock.setTamLayout("105");

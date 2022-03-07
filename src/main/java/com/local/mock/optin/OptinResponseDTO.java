@@ -1,5 +1,8 @@
 package com.local.mock.optin;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OptinResponseDTO {
 
     private String nomeLayout;
