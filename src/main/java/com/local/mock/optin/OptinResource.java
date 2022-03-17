@@ -14,17 +14,17 @@ public class OptinResource {
     @PostMapping
     public ResponseEntity<OptinResponseDTO> consultarDadosCadastrais(@RequestBody OptinRequestDTO requestDTO) {
 
-	OptinResponseDTO response = mockResponseSucessoDTO();
-	return ResponseEntity.ok(response);
+//	OptinResponseDTO response = mockResponseSucessoDTO();
+//	return ResponseEntity.ok(response);
 	
-//	OptinResponseDTO response = mockResponseErroDTO();
-//	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+	OptinResponseDTO response = mockResponseErroDTO();
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
     private OptinResponseDTO mockResponseErroDTO() {
 	OptinResponseDTO mockErro = new OptinResponseDTO();
-	mockErro.setCode("501");
-	mockErro.setMessage("Erro na chamada ao Mainframe.");
+	mockErro.setCode("501 [Serviço Mockado]");
+	mockErro.setMessage("Erro na chamada ao Mainframe [Serviço Mockado].");
 	return mockErro;
     }
 
